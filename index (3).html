@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ======================================================================
+     SEO / METADATA
+     Replace the bracketed placeholders below with your own information.
+     ====================================================================== -->
+<title>[STUDENT NAME] | [PROGRAM NAME] Student at Pacific States University</title>
+<meta name="description" content="Personal academic and professional portfolio of [STUDENT NAME], a [PROGRAM NAME] student at Pacific States University based in [CITY, STATE].">
+<meta name="author" content="[STUDENT NAME]">
+<link rel="canonical" href="https://[your-username].github.io/[repo-name]/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="[STUDENT NAME] | [PROGRAM NAME] Student">
+<meta property="og:description" content="Personal academic and professional portfolio of [STUDENT NAME], a [PROGRAM NAME] student at Pacific States University.">
+<meta property="og:url" content="https://[your-username].github.io/[repo-name]/">
+<meta property="og:image" content="assets/profile.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[STUDENT NAME] | [PROGRAM NAME] Student">
+<meta name="twitter:description" content="Personal academic and professional portfolio of [STUDENT NAME], a [PROGRAM NAME] student at Pacific States University.">
+<meta name="twitter:image" content="assets/profile.jpg">
+
+<!-- Favicon (optional — add assets/favicon.ico or remove this line) -->
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+<!-- Fonts: Fraunces (display serif) + Inter (body/UI sans) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Icons: Lucide (lightweight SVG icon set via CDN) -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+<style>
+/* ==========================================================================
+   1. DESIGN TOKENS
+   ========================================================================== */
+:root{
+  --bg:            #F5F4EF;
+  --bg-raised:     #FFFFFE;
+  --bg-alt:        #EBEAE2;
+  --ink:           #1D2018;
+  --ink-soft:      #5B5E52;
+  --ink-faint:     #8B8E80;
+  --line:          #DCDACD;
+  --accent:        #2F5233;
+  --accent-ink:    #FFFFFF;
+  --accent-soft:   #C9A85C;
+  --danger:        #A3402F;
+  --focus:         #2F5233;
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --max-w: 1120px;
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --shadow-1: 0 1px 2px rgba(29,32,24,0.06), 0 1px 1px rgba(29,32,24,0.04);
+  --shadow-2: 0 8px 24px rgba(29,32,24,0.10);
+
+  --dur-fast: 150ms;
+  --dur-med: 320ms;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+html[data-theme="dark"]{
+  --bg:            #12140F;
+  --bg-raised:     #191C15;
+  --bg-alt:        #1F231A;
+  --ink:           #EDEDE4;
+  --ink-soft:      #ADB0A0;
+  --ink-faint:     #767A6A;
+  --line:          #2C3025;
+  --accent:        #6FA377;
+  --accent-ink:    #0C0F0A;
+  --accent-soft:   #E0C079;
+  --danger:        #E08A73;
+  --focus:         #6FA377;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.35), 0 1px 1px rgba(0,0,0,0.25);
+  --shadow-2: 0 12px 28px rgba(0,0,0,0.45);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   2. RESET / BASE
+   ========================================================================== */
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background var(--dur-med) var(--ease), color var(--dur-med) var(--ease);
+}
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+ul{ margin: 0; padding: 0; list-style: none; }
+h1,h2,h3,h4{ font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0; color: var(--ink); }
+p{ margin: 0; }
+button{ font-family: inherit; cursor: pointer; }
+
+:focus-visible{
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.container{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section{
+  padding: 96px 0;
+  border-top: 1px solid var(--line);
+}
+.section:first-of-type{ border-top: none; }
+
+.section-head{
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+.section-head h2{
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+.section-head p{
+  color: var(--ink-soft);
+  margin-top: 12px;
+  font-size: 1.02rem;
+}
+
+.section[hidden]{ display: none !important; }
+
+.visually-hidden{
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-link{
+  position: absolute;
+  left: 12px; top: -48px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 10px 16px;
+  border-radius: var(--radius-s);
+  z-index: 1000;
+  transition: top var(--dur-fast) var(--ease);
+}
+.skip-link:focus{ top: 12px; }
+
+/* ==========================================================================
+   3. BUTTONS
+   ========================================================================== */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: var(--radius-s);
+  font-weight: 600;
+  font-size: 0.96rem;
+  border: 1px solid transparent;
+  transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  white-space: nowrap;
+}
+.btn svg{ width: 17px; height: 17px; }
+.btn-primary{
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover{ transform: translateY(-1px); }
+.btn-outline{
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btn-outline:hover{ border-color: var(--accent); color: var(--accent); }
+.btn-sm{ padding: 8px 14px; font-size: 0.86rem; }
+
+/* ==========================================================================
+   4. NAVIGATION
+   ========================================================================== */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.site-header.is-scrolled{ border-bottom-color: var(--line); }
+
+.nav{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand{
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.brand small{
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.68rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-links a{
+  padding: 8px 12px;
+  border-radius: var(--radius-s);
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
+}
+.nav-links a:hover,
+.nav-links a.is-active{
+  color: var(--ink);
+  background: var(--bg-alt);
+}
+
+.nav-tools{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.theme-toggle{
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+  transition: border-color var(--dur-fast) var(--ease);
+}
+.theme-toggle:hover{ border-color: var(--accent); }
+.theme-toggle svg{ width: 18px; height: 18px; }
+.theme-toggle .icon-moon{ display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun{ display: none; }
+html[data-theme="dark"] .theme-toggle .icon-moon{ display: block; }
+
+.menu-btn{
+  display: none;
+  width: 40px; height: 40px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  align-items: center; justify-content: center;
+  color: var(--ink);
+}
+.menu-btn svg{ width: 20px; height: 20px; }
+
+@media (max-width: 880px){
+  .nav-links{
+    position: fixed;
+    inset: 68px 16px auto 16px;
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-2);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    gap: 0;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+  }
+  .nav-links.is-open{
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-links a{ padding: 12px 14px; }
+  .menu-btn{ display: flex; }
+}
+
+/* ==========================================================================
+   5. HERO
+   ========================================================================== */
+.hero{
+  padding: 72px 0 96px;
+}
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero-eyebrow{
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+.hero h1{
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  letter-spacing: -0.01em;
+}
+.hero h1 .line{
+  display: block;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: rise 700ms var(--ease) forwards;
+}
+.hero h1 .line:nth-child(2){ animation-delay: 90ms; }
+@keyframes rise{ to{ opacity: 1; transform: translateY(0); } }
+
+.hero-headline{
+  margin-top: 18px;
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+.hero-bio{
+  margin-top: 16px;
+  color: var(--ink-soft);
+  max-width: 54ch;
+}
+
+.hero-meta{
+  margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+.hero-meta li{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+.hero-meta svg{ width: 16px; height: 16px; flex-shrink: 0; color: var(--accent); }
+.hero-meta a:hover{ color: var(--accent); }
+
+.hero-actions{
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-social{
+  margin-top: 28px;
+  display: flex;
+  gap: 10px;
+}
+.social-btn{
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-soft);
+  transition: color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.social-btn svg{ width: 18px; height: 18px; }
+.social-btn:hover{ color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+
+.hero-photo-wrap{
+  position: relative;
+  justify-self: center;
+}
+.hero-photo{
+  width: min(340px, 100%);
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-2);
+}
+.hero-photo img{ width: 100%; height: 100%; object-fit: cover; }
+.hero-photo .placeholder{
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--ink-faint);
+}
+.hero-photo .placeholder svg{ width: 56px; height: 56px; }
+.hero-photo .placeholder span{ font-size: 0.82rem; text-align: center; padding: 0 20px; }
+
+.hero-photo-tag{
+  position: absolute;
+  bottom: -16px;
+  left: -16px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 10px 16px;
+  border-radius: var(--radius-s);
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-1);
+}
+
+@media (max-width: 880px){
+  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-photo-wrap{ order: -1; }
+  .hero-photo{ width: min(240px, 60vw); }
+  .hero-photo-tag{ display: none; }
+}
+
+/* ==========================================================================
+   6. ABOUT
+   ========================================================================== */
+.about-grid{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+}
+.about-body p{ color: var(--ink-soft); margin-bottom: 16px; }
+.about-body p:last-child{ margin-bottom: 0; }
+
+.about-facts{
+  display: grid;
+  gap: 18px;
+  align-content: start;
+}
+.fact{
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 18px 20px;
+}
+.fact h4{
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-family: var(--font-body);
+  font-weight: 700;
+}
+.fact p{ color: var(--ink-soft); font-size: 0.93rem; }
+
+@media (max-width: 780px){
+  .about-grid{ grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   7. EDUCATION
+   ========================================================================== */
+.edu-card{
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 28px 30px;
+  margin-bottom: 20px;
+}
+.edu-card:last-child{ margin-bottom: 0; }
+.edu-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.edu-top h3{ font-size: 1.2rem; }
+.edu-dates{ color: var(--ink-faint); font-size: 0.88rem; white-space: nowrap; }
+.edu-institution{ color: var(--accent); font-weight: 600; margin-top: 4px; font-size: 0.98rem; }
+.edu-gpa{ color: var(--ink-soft); font-size: 0.9rem; margin-top: 10px; }
+
+.coursework{
+  margin-top: 16px;
+}
+.coursework summary{
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.coursework summary::-webkit-details-marker{ display: none; }
+.coursework summary svg{ width: 14px; height: 14px; transition: transform var(--dur-fast) var(--ease); }
+.coursework[open] summary svg{ transform: rotate(90deg); }
+.coursework-list{
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.coursework-list li{
+  background: var(--bg-alt);
+  border-radius: var(--radius-s);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.achv-list{ margin-top: 14px; }
+.achv-list li{
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+.achv-list li::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+
+/* ==========================================================================
+   8. SKILLS
+   ========================================================================== */
+.skills-groups{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px 48px;
+}
+.skill-group h3{
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.skill-group .group-note{
+  color: var(--ink-faint);
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+.skill-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.skill-tag{
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  color: var(--ink-soft);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.86rem;
+  transition: border-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+}
+.skill-tag:hover{ border-color: var(--accent); color: var(--accent); }
+
+@media (max-width: 780px){
+  .skills-groups{ grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* ==========================================================================
+   9. PROJECTS
+   ========================================================================== */
+.project-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.project-card{
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+.project-card:hover{ transform: translateY(-3px); box-shadow: var(--shadow-2); }
+.project-media{
+  aspect-ratio: 16/9;
+  background: var(--bg-alt);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-faint);
+  overflow: hidden;
+}
+.project-media img{ width: 100%; height: 100%; object-fit: cover; }
+.project-media svg{ width: 34px; height: 34px; }
+.project-body{
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.project-body h3{ font-size: 1.1rem; }
+.project-role{ color: var(--accent); font-size: 0.82rem; font-weight: 600; }
+.project-body p.desc{ color: var(--ink-soft); font-size: 0.93rem; }
+.project-tech{
+  display: flex; flex-wrap: wrap; gap: 6px;
+  margin-top: 4px;
+}
+.project-tech li{
+  font-size: 0.76rem;
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-s);
+}
+.project-links{
+  margin-top: auto;
+  padding-top: 12px;
+  display: flex;
+  gap: 16px;
+}
+.project-links a{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.project-links a svg{ width: 15px; height: 15px; }
+.project-links a:hover{ color: var(--accent); }
+
+@media (max-width: 780px){
+  .project-grid{ grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   10. EXPERIENCE (timeline)
+   ========================================================================== */
+.timeline{
+  position: relative;
+  padding-left: 32px;
+  border-left: 2px solid var(--line);
+}
+.timeline-item{
+  position: relative;
+  padding-bottom: 40px;
+}
+.timeline-item:last-child{ padding-bottom: 0; }
+.timeline-item::before{
+  content: "";
+  position: absolute;
+  left: -38px;
+  top: 4px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+}
+.timeline-head{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+}
+.timeline-head h3{ font-size: 1.1rem; }
+.timeline-dates{ font-size: 0.85rem; color: var(--ink-faint); white-space: nowrap; }
+.timeline-org{ color: var(--accent); font-weight: 600; font-size: 0.95rem; margin-top: 3px; }
+.timeline-loc{ color: var(--ink-faint); font-size: 0.85rem; margin-top: 2px; }
+.timeline-list{ margin-top: 12px; }
+.timeline-list li{
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 0.93rem;
+  margin-top: 7px;
+}
+.timeline-list li::before{
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+.timeline-tech{
+  margin-top: 12px;
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+.timeline-tech li{
+  font-size: 0.76rem;
+  background: var(--bg-alt);
+  color: var(--ink-soft);
+  padding: 4px 10px;
+  border-radius: var(--radius-s);
+  padding-left: 10px;
+}
+.timeline-tech li::before{ display: none; }
+
+/* ==========================================================================
+   11. RESEARCH
+   ========================================================================== */
+.research-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.research-card{
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 24px 26px;
+}
+.research-card h3{ font-size: 1.05rem; margin-bottom: 10px; }
+.research-card p, .research-card li{ color: var(--ink-soft); font-size: 0.92rem; }
+.research-card ul li{ position: relative; padding-left: 16px; margin-top: 6px; }
+.research-card ul li::before{
+  content: "";
+  position: absolute; left: 0; top: 8px;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-soft);
+}
+.research-links{ margin-top: 14px; display: flex; gap: 14px; flex-wrap: wrap; }
+.research-links a{ font-size: 0.86rem; font-weight: 600; color: var(--accent); }
+.research-links a:hover{ text-decoration: underline; }
+
+@media (max-width: 780px){ .research-grid{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   12. PUBLICATIONS (citation style)
+   ========================================================================== */
+.pub-list{ display: flex; flex-direction: column; gap: 26px; }
+.pub-item{
+  padding-left: 28px;
+  border-left: 2px solid var(--line);
+  position: relative;
+}
+.pub-item::before{
+  content: "";
+  position: absolute; left: -6px; top: 3px;
+  width: 10px; height: 10px;
+  background: var(--accent-soft);
+  border-radius: 2px;
+}
+.pub-title{ font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; }
+.pub-meta{ color: var(--ink-soft); font-size: 0.9rem; margin-top: 6px; font-style: italic; }
+.pub-year{ color: var(--ink-faint); font-size: 0.85rem; margin-top: 2px; }
+.pub-abstract{
+  margin-top: 10px;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+.pub-abstract summary{ cursor: pointer; font-weight: 600; color: var(--ink); font-size: 0.86rem; list-style: none; }
+.pub-abstract summary::-webkit-details-marker{ display: none; }
+.pub-abstract p{ margin-top: 8px; }
+.pub-links{ margin-top: 10px; display: flex; gap: 16px; }
+.pub-links a{ font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+.pub-links a:hover{ text-decoration: underline; }
+
+/* ==========================================================================
+   13. CERTIFICATIONS & AWARDS
+   ========================================================================== */
+.split-two{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+.mini-list{ display: flex; flex-direction: column; gap: 16px; }
+.mini-item{
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.mini-item:last-child{ border-bottom: none; padding-bottom: 0; }
+.mini-item h4{ font-size: 0.98rem; font-weight: 600; font-family: var(--font-body); }
+.mini-item .org{ color: var(--accent); font-size: 0.85rem; margin-top: 2px; }
+.mini-item .desc{ color: var(--ink-soft); font-size: 0.87rem; margin-top: 4px; }
+.mini-item .date{ color: var(--ink-faint); font-size: 0.82rem; white-space: nowrap; }
+.mini-item a.credential{ font-size: 0.82rem; color: var(--accent); font-weight: 600; margin-top: 4px; display: inline-block; }
+
+@media (max-width: 780px){ .split-two{ grid-template-columns: 1fr; gap: 32px; } }
+
+/* ==========================================================================
+   14. VOLUNTEERING / LEADERSHIP
+   ========================================================================== */
+.leader-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.leader-card{
+  border: 1px solid var(--line);
+  background: var(--bg-raised);
+  border-radius: var(--radius-m);
+  padding: 22px;
+}
+.leader-card h4{ font-size: 0.98rem; font-weight: 600; font-family: var(--font-body); }
+.leader-card .role{ color: var(--accent); font-size: 0.85rem; margin-top: 3px; font-weight: 600; }
+.leader-card .when{ color: var(--ink-faint); font-size: 0.8rem; margin-top: 2px; }
+.leader-card p.desc{ color: var(--ink-soft); font-size: 0.87rem; margin-top: 8px; }
+
+@media (max-width: 880px){ .leader-grid{ grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px){ .leader-grid{ grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   15. RESUME
+   ========================================================================== */
+.resume-panel{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 32px;
+}
+.resume-panel-text h3{ font-size: 1.2rem; }
+.resume-panel-text p{ color: var(--ink-soft); margin-top: 8px; max-width: 46ch; }
+.resume-actions{ display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ==========================================================================
+   16. CONTACT
+   ========================================================================== */
+.contact-panel{
+  background: var(--ink);
+  color: var(--bg);
+  border-radius: var(--radius-m);
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+html[data-theme="dark"] .contact-panel{ background: var(--bg-alt); }
+.contact-panel h2{ color: inherit; font-size: clamp(1.6rem, 3vw, 2.1rem); }
+.contact-panel p{ color: color-mix(in srgb, var(--bg) 70%, transparent); margin-top: 12px; max-width: 44ch; }
+html[data-theme="dark"] .contact-panel p{ color: var(--ink-soft); }
+.contact-methods{ display: flex; flex-direction: column; gap: 16px; }
+.contact-method{
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
+  border-radius: var(--radius-s);
+  color: inherit;
+  transition: border-color var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+html[data-theme="dark"] .contact-method{ border-color: var(--line); }
+.contact-method:hover{ border-color: var(--accent-soft); transform: translateX(3px); }
+.contact-method svg{ width: 19px; height: 19px; flex-shrink: 0; color: var(--accent-soft); }
+.contact-method span{ font-size: 0.94rem; font-weight: 500; }
+
+@media (max-width: 880px){
+  .contact-panel{ grid-template-columns: 1fr; padding: 36px 28px; }
+}
+
+/* ==========================================================================
+   17. FOOTER
+   ========================================================================== */
+.site-footer{
+  padding: 40px 0;
+  border-top: 1px solid var(--line);
+}
+.footer-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-row p{ color: var(--ink-faint); font-size: 0.85rem; }
+.footer-note{
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+/* ==========================================================================
+   18. SCROLL REVEAL (single subtle utility, applied sparingly)
+   ========================================================================== */
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+}
+.reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+/* ==========================================================================
+   19. NO-JS FALLBACK
+   ========================================================================== */
+.no-js .nav-links{ position: static; opacity: 1; transform: none; pointer-events: auto; box-shadow: none; border: none; background: transparent; display: flex; flex-direction: row; }
+.no-js .menu-btn{ display: none; }
+.no-js .reveal{ opacity: 1; transform: none; }
+.no-js details[open] .coursework-list,
+.no-js .coursework-list{ display: flex; }
+</style>
+</head>
+
+<body class="no-js">
+<script>document.body.classList.remove('no-js');</script>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ======================================================================
+     STUDENT INFORMATION — EDIT THIS SECTION
+     ----------------------------------------------------------------------
+     This entire file is organized so that everything a student needs to
+     personalize is clearly marked with an "EDIT" comment. Search for the
+     word EDIT in this file to find every spot that needs your information.
+
+     To hide any OPTIONAL section (Research, Publications, Volunteering,
+     etc.), find its <section> tag and add the attribute:  hidden
+     e.g.  <section id="research" class="section" hidden>
+     Hiding a section automatically removes it from the navigation menu.
+     ====================================================================== -->
+
+<header class="site-header" id="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="#home">
+      [Student Name]
+      <small>Personal Website · Pacific States University</small>
+    </a>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-tools">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="menu-btn" id="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ==================================================================
+       HERO
+       EDIT: name, program, headline, bio, location, email, links, photo
+       ================================================================== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <p class="hero-eyebrow">Personal Website · Pacific States University</p>
+
+        <h1>
+          <span class="line">Hello, I'm</span>
+          <span class="line">[Student Name].</span>
+        </h1>
+
+        <!-- EDIT: your program and one-line professional headline -->
+        <p class="hero-headline">[Program Name] Student · [Interest Area, e.g. Software Engineering] · Aspiring [Target Role]</p>
+
+        <!-- EDIT: a 2–3 sentence introduction -->
+        <p class="hero-bio">
+          I'm a [year, e.g. third-year] student at Pacific States University studying [Program Name].
+          I'm interested in [interests], and I'm currently looking for [internships / research
+          opportunities / full-time roles] where I can [what you want to contribute].
+        </p>
+
+        <ul class="hero-meta">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            [City, State]
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View My Work</a>
+          <!-- EDIT: point this to your actual resume file inside /assets -->
+          <a class="btn btn-outline" href="assets/resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"/></svg>
+            Download Resume
+          </a>
+        </div>
+
+        <!-- EDIT: remove any link you don't use; keep the icon+href only for links you provide -->
+        <div class="hero-social" aria-label="Social links">
+          <a class="social-btn" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M6.94 8.5a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88ZM5.5 10.5h2.9V19H5.5v-8.5ZM10.5 10.5h2.78v1.16h.04c.39-.73 1.33-1.5 2.74-1.5 2.93 0 3.47 1.93 3.47 4.43V19h-2.9v-3.86c0-.92-.02-2.1-1.28-2.1-1.29 0-1.49 1-1.49 2.04V19h-2.9v-8.5Z"/></svg>
+          </a>
+          <a class="social-btn" href="https://github.com/your-handle" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <!-- EDIT: replace with <img src="assets/profile.jpg" alt="Portrait of [Student Name]"> -->
+          <div class="placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+            <span>Add assets/profile.jpg</span>
+          </div>
+        </div>
+        <div class="hero-photo-tag">[Program Name] · PSU</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       ABOUT
+       EDIT: biography, academic background, interests, goals
+       ================================================================== -->
+  <section class="section reveal" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About Me</h2>
+        <p>A closer look at my background, interests, and what I'm working toward.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <!-- EDIT: short biography (2-3 paragraphs) -->
+          <p>
+            I'm currently pursuing my [Degree, e.g. Bachelor of Science] in [Program Name] at
+            Pacific States University, where I've focused my coursework on [areas of focus].
+            My academic path started with an interest in [origin story of interest], which grew
+            into a broader curiosity about [related field].
+          </p>
+          <p>
+            Outside of coursework, I enjoy [personal interests, e.g. hiking, chess, photography].
+            I'm drawn to problems that involve [type of problem you like solving], and I try to
+            spend my free time building small projects, reading about [topics], or contributing to
+            [communities/organizations].
+          </p>
+          <p>
+            Looking ahead, my goal is to [career goal — e.g. work as a software engineer focused on
+            accessible design / pursue graduate research in X]. I'm actively seeking
+            [internships/research/full-time roles] where I can grow as a [role] while contributing to
+            meaningful work.
+          </p>
+        </div>
+
+        <div class="about-facts">
+          <div class="fact">
+            <h4>Academic Background</h4>
+            <!-- EDIT -->
+            <p>[Degree Program], Pacific States University — expected [Month Year]</p>
+          </div>
+          <div class="fact">
+            <h4>Career Interests</h4>
+            <!-- EDIT -->
+            <p>[e.g. Full-stack development, applied machine learning, cybersecurity]</p>
+          </div>
+          <div class="fact">
+            <h4>Professional Goals</h4>
+            <!-- EDIT -->
+            <p>[e.g. Secure a software engineering internship in 2027; contribute to open-source]</p>
+          </div>
+          <div class="fact">
+            <h4>Personal Interests</h4>
+            <!-- EDIT -->
+            <p>[e.g. Rock climbing, chess, playing guitar, volunteering at the animal shelter]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       EDUCATION
+       EDIT: copy the .edu-card block to add more entries
+       ================================================================== -->
+  <section class="section reveal" id="education">
+    <div class="container">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p>My academic history and coursework.</p>
+      </div>
+
+      <!-- EDU CARD — copy this whole <div class="edu-card"> block to add another degree -->
+      <div class="edu-card">
+        <div class="edu-top">
+          <div>
+            <h3>[Degree, e.g. Bachelor of Science in Computer Science]</h3>
+            <p class="edu-institution">Pacific States University</p>
+          </div>
+          <p class="edu-dates">[Aug 2023] – [May 2027]</p>
+        </div>
+        <p class="edu-gpa">GPA: [3.x / 4.0] (optional — remove this line if you prefer not to list it)</p>
+
+        <ul class="achv-list">
+          <!-- EDIT: academic achievements, honors, dean's list, scholarships -->
+          <li>[Academic achievement or honor]</li>
+          <li>[Scholarship or award]</li>
+        </ul>
+
+        <details class="coursework">
+          <summary>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg>
+            Relevant Coursework
+          </summary>
+          <ul class="coursework-list">
+            <!-- EDIT: list your relevant courses -->
+            <li>[Course Name]</li>
+            <li>[Course Name]</li>
+            <li>[Course Name]</li>
+            <li>[Course Name]</li>
+          </ul>
+        </details>
+      </div>
+      <!-- END EDU CARD -->
+
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       SKILLS
+       EDIT: swap tags for your own skills within each category
+       ================================================================== -->
+  <section class="section reveal" id="skills">
+    <div class="container">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p>Technical and professional skills I've developed through coursework, projects, and experience.</p>
+      </div>
+
+      <div class="skills-groups">
+        <div class="skill-group">
+          <h3>Programming</h3>
+          <p class="group-note">Languages and frameworks I use regularly.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">Python</li>
+            <li class="skill-tag">JavaScript</li>
+            <li class="skill-tag">Java</li>
+            <li class="skill-tag">SQL</li>
+            <li class="skill-tag">HTML &amp; CSS</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Software &amp; Tools</h3>
+          <p class="group-note">Platforms and tools I've worked with.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">Git &amp; GitHub</li>
+            <li class="skill-tag">VS Code</li>
+            <li class="skill-tag">Figma</li>
+            <li class="skill-tag">Jupyter Notebook</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Databases &amp; Cloud</h3>
+          <p class="group-note">Data storage and cloud platforms.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">MySQL</li>
+            <li class="skill-tag">PostgreSQL</li>
+            <li class="skill-tag">MongoDB</li>
+            <li class="skill-tag">AWS</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Networking &amp; Security</h3>
+          <p class="group-note">Coursework and applied experience.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">TCP/IP</li>
+            <li class="skill-tag">Linux Administration</li>
+            <li class="skill-tag">Network Security Fundamentals</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>AI / ML &amp; Data</h3>
+          <p class="group-note">Applied coursework and personal projects.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">Pandas</li>
+            <li class="skill-tag">scikit-learn</li>
+            <li class="skill-tag">Data Visualization</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Professional Skills</h3>
+          <p class="group-note">Skills built through teams, leadership, and coursework.</p>
+          <ul class="skill-tags">
+            <li class="skill-tag">Communication</li>
+            <li class="skill-tag">Leadership</li>
+            <li class="skill-tag">Teamwork</li>
+            <li class="skill-tag">Problem Solving</li>
+            <li class="skill-tag">Project Management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       PROJECTS
+       EDIT: copy the .project-card block to add more projects
+       ================================================================== -->
+  <section class="section reveal" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p>A selection of academic and personal projects I've built.</p>
+      </div>
+
+      <div class="project-grid">
+        <!-- PROJECT CARD — copy this whole <div class="project-card"> block to add another project -->
+        <div class="project-card">
+          <div class="project-media">
+            <!-- EDIT: replace with <img src="assets/project-1.jpg" alt="Screenshot of [Project Title]"> -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 15 5-5 4 4 5-6 4 5"/></svg>
+          </div>
+          <div class="project-body">
+            <h3>[Project Title]</h3>
+            <p class="project-role">Role: [e.g. Lead Developer, Team of 3]</p>
+            <p class="desc">[One to two sentences describing what the project does and the problem it solves.]</p>
+            <ul class="project-tech">
+              <li>[Tech 1]</li>
+              <li>[Tech 2]</li>
+              <li>[Tech 3]</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/your-handle/project-repo" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                Code
+              </a>
+              <a href="https://your-demo-link.example.com" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4 10 14M6 4H4v16h16v-2"/></svg>
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- END PROJECT CARD -->
+
+        <div class="project-card">
+          <div class="project-media">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="m3 15 5-5 4 4 5-6 4 5"/></svg>
+          </div>
+          <div class="project-body">
+            <h3>[Project Title]</h3>
+            <p class="project-role">Role: [e.g. Solo Project]</p>
+            <p class="desc">[One to two sentences describing what the project does and the problem it solves.]</p>
+            <ul class="project-tech">
+              <li>[Tech 1]</li>
+              <li>[Tech 2]</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://github.com/your-handle/project-repo" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       EXPERIENCE
+       EDIT: copy the .timeline-item block to add more roles
+       ================================================================== -->
+  <section class="section reveal" id="experience">
+    <div class="container">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p>Internships, jobs, and hands-on roles that have shaped my skills.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- TIMELINE ITEM — copy this whole block to add another role -->
+        <div class="timeline-item">
+          <div class="timeline-head">
+            <h3>[Job Title]</h3>
+            <p class="timeline-dates">[Jun 2025] – [Aug 2025]</p>
+          </div>
+          <p class="timeline-org">[Company / Organization Name]</p>
+          <p class="timeline-loc">[City, State] · [On-site / Remote / Hybrid]</p>
+          <ul class="timeline-list">
+            <!-- EDIT: focus on accomplishments, not just duties -->
+            <li>[Accomplishment — e.g. Reduced page load time by 30% by optimizing image delivery.]</li>
+            <li>[Accomplishment — e.g. Built an internal tool used by 15+ team members daily.]</li>
+            <li>[Accomplishment — e.g. Collaborated with a team of 5 to ship a feature ahead of schedule.]</li>
+          </ul>
+          <ul class="timeline-tech">
+            <li>[Tech 1]</li>
+            <li>[Tech 2]</li>
+          </ul>
+        </div>
+        <!-- END TIMELINE ITEM -->
+
+        <div class="timeline-item">
+          <div class="timeline-head">
+            <h3>[Job Title]</h3>
+            <p class="timeline-dates">[Sep 2024] – [May 2025]</p>
+          </div>
+          <p class="timeline-org">[Company / Organization Name]</p>
+          <p class="timeline-loc">[City, State] · [On-site / Remote / Hybrid]</p>
+          <ul class="timeline-list">
+            <li>[Accomplishment]</li>
+            <li>[Accomplishment]</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       RESEARCH (optional — add the "hidden" attribute to the <section>
+       tag below to remove this section and its nav link entirely)
+       ================================================================== -->
+  <section class="section reveal" id="research">
+    <div class="container">
+      <div class="section-head">
+        <h2>Research</h2>
+        <p>Research interests, projects, and academic collaborations.</p>
+      </div>
+
+      <div class="research-grid">
+        <div class="research-card">
+          <h3>Research Interests</h3>
+          <!-- EDIT -->
+          <ul>
+            <li>[Research interest 1]</li>
+            <li>[Research interest 2]</li>
+            <li>[Research interest 3]</li>
+          </ul>
+        </div>
+
+        <div class="research-card">
+          <h3>Research Assistant Experience</h3>
+          <!-- EDIT -->
+          <p>[Lab / Department Name], Pacific States University — [Term/Year]</p>
+          <p style="margin-top:8px;">[Brief description of your role and contribution to the research.]</p>
+        </div>
+
+        <div class="research-card">
+          <h3>Research Projects</h3>
+          <!-- EDIT -->
+          <ul>
+            <li>[Project title — one line description]</li>
+            <li>[Project title — one line description]</li>
+          </ul>
+        </div>
+
+        <div class="research-card">
+          <h3>Conferences</h3>
+          <!-- EDIT -->
+          <ul>
+            <li>[Conference name, location, year — poster/talk title]</li>
+          </ul>
+          <div class="research-links">
+            <a href="#" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="#" target="_blank" rel="noopener">ORCID</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       PUBLICATIONS (optional — add "hidden" to the <section> tag to remove)
+       EDIT: copy the .pub-item block to add more publications.
+       Do not invent publication details — leave placeholders if unsure.
+       ================================================================== -->
+  <section class="section reveal" id="publications">
+    <div class="container">
+      <div class="section-head">
+        <h2>Publications</h2>
+        <p>Papers and academic writing I've authored or co-authored.</p>
+      </div>
+
+      <div class="pub-list">
+        <!-- PUB ITEM — copy this block to add another publication -->
+        <div class="pub-item">
+          <p class="pub-title">[Paper Title]</p>
+          <p class="pub-meta">[Author 1], [Author 2], [Your Name] — <em>[Journal / Conference Name]</em></p>
+          <p class="pub-year">[Year] · DOI: <a href="https://doi.org/[your-doi]" target="_blank" rel="noopener">[10.xxxx/xxxxx]</a></p>
+          <details class="pub-abstract">
+            <summary>View Abstract</summary>
+            <p>[Paste your abstract here.]</p>
+          </details>
+          <div class="pub-links">
+            <a href="assets/publication-1.pdf" target="_blank" rel="noopener">PDF</a>
+            <a href="https://publisher-link.example.com" target="_blank" rel="noopener">Publisher Page</a>
+          </div>
+        </div>
+        <!-- END PUB ITEM -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       CERTIFICATIONS & AWARDS
+       EDIT: copy .mini-item blocks to add more entries in either list
+       ================================================================== -->
+  <section class="section reveal" id="certifications">
+    <div class="container">
+      <div class="section-head">
+        <h2>Certifications &amp; Awards</h2>
+        <p>Credentials and recognition I've earned along the way.</p>
+      </div>
+
+      <div class="split-two">
+        <div>
+          <h3 style="font-size:1.05rem; margin-bottom:16px;">Certifications</h3>
+          <div class="mini-list">
+            <div class="mini-item">
+              <div>
+                <h4>[Certification Name]</h4>
+                <p class="org">[Issuing Organization]</p>
+                <a class="credential" href="https://credential-link.example.com" target="_blank" rel="noopener">View Credential</a>
+              </div>
+              <p class="date">[Month Year]</p>
+            </div>
+            <div class="mini-item">
+              <div>
+                <h4>[Certification Name]</h4>
+                <p class="org">[Issuing Organization]</p>
+              </div>
+              <p class="date">[Month Year]</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="font-size:1.05rem; margin-bottom:16px;">Awards &amp; Achievements</h3>
+          <div class="mini-list">
+            <div class="mini-item">
+              <div>
+                <h4>[Award Name]</h4>
+                <p class="org">[Organization]</p>
+                <p class="desc">[Short description of the award.]</p>
+              </div>
+              <p class="date">[Month Year]</p>
+            </div>
+            <div class="mini-item">
+              <div>
+                <h4>[Award Name]</h4>
+                <p class="org">[Organization]</p>
+                <p class="desc">[Short description of the award.]</p>
+              </div>
+              <p class="date">[Month Year]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       VOLUNTEERING & LEADERSHIP (optional — add "hidden" to remove)
+       EDIT: copy .leader-card blocks to add more entries
+       ================================================================== -->
+  <section class="section reveal" id="leadership">
+    <div class="container">
+      <div class="section-head">
+        <h2>Volunteering &amp; Leadership</h2>
+        <p>Student organizations, campus involvement, and community work.</p>
+      </div>
+
+      <div class="leader-grid">
+        <div class="leader-card">
+          <h4>[Organization Name]</h4>
+          <p class="role">[Your Role, e.g. Chapter Secretary]</p>
+          <p class="when">[Sep 2024 – Present]</p>
+          <p class="desc">[Brief description of your involvement and impact.]</p>
+        </div>
+        <div class="leader-card">
+          <h4>[IEEE Student Branch / Club Name]</h4>
+          <p class="role">[Your Role]</p>
+          <p class="when">[Term/Year]</p>
+          <p class="desc">[Brief description of your involvement and impact.]</p>
+        </div>
+        <div class="leader-card">
+          <h4>[Volunteer Organization]</h4>
+          <p class="role">[Your Role]</p>
+          <p class="when">[Term/Year]</p>
+          <p class="desc">[Brief description of your involvement and impact.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       RESUME
+       EDIT: point both links at your resume file in /assets
+       ================================================================== -->
+  <section class="section reveal" id="resume">
+    <div class="container">
+      <div class="resume-panel">
+        <div class="resume-panel-text">
+          <h3>My Resume</h3>
+          <p>The most up-to-date summary of my education, skills, and experience.</p>
+        </div>
+        <div class="resume-actions">
+          <a class="btn btn-primary" href="assets/resume.pdf" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 19h16"/></svg>
+            Download Resume
+          </a>
+          <a class="btn btn-outline" href="assets/resume.pdf" target="_blank" rel="noopener">View Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       CONTACT
+       EDIT: email, phone (optional), location
+       ================================================================== -->
+  <section class="section reveal" id="contact">
+    <div class="container">
+      <div class="contact-panel">
+        <div>
+          <h2>Interested in connecting?</h2>
+          <p>Feel free to reach out regarding internships, employment, research, projects, or collaboration. I try to respond within a few days.</p>
+        </div>
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:your.email@example.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <span>your.email@example.com</span>
+          </a>
+          <a class="contact-method" href="https://linkedin.com/in/your-handle" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.94 8.5a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88ZM5.5 10.5h2.9V19H5.5v-8.5ZM10.5 10.5h2.78v1.16h.04c.39-.73 1.33-1.5 2.74-1.5 2.93 0 3.47 1.93 3.47 4.43V19h-2.9v-3.86c0-.92-.02-2.1-1.28-2.1-1.29 0-1.49 1-1.49 2.04V19h-2.9v-8.5Z"/></svg>
+            <span>linkedin.com/in/your-handle</span>
+          </a>
+          <a class="contact-method" href="https://github.com/your-handle" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.9-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            <span>github.com/your-handle</span>
+          </a>
+          <!-- OPTIONAL: uncomment and edit if you want to list a phone number or location
+          <a class="contact-method" href="tel:+10000000000">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8.1 9.7a16 16 0 0 0 6.2 6.2l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(000) 000-0000</span>
+          </a>
+          -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© <span id="year"></span> [Student Name]. All rights reserved.</p>
+    <p class="footer-note">Personal Website · Pacific States University — not an official PSU site.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* --------------------------------------------------------------------
+     THEME (light / dark) — respects system preference on first visit,
+     then remembers the student's choice in localStorage.
+     -------------------------------------------------------------------- */
+  var root = document.documentElement;
+  var THEME_KEY = 'psu-portfolio-theme';
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    var btn = document.getElementById('theme-toggle');
+    if (btn) btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+
+  var stored = null;
+  try { stored = localStorage.getItem(THEME_KEY); } catch (e) { /* localStorage unavailable */ }
+
+  if (stored === 'light' || stored === 'dark') {
+    applyTheme(stored);
+  } else {
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(prefersDark ? 'dark' : 'light');
+  }
+
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle){
+    themeToggle.addEventListener('click', function(){
+      var current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = current === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* ignore */ }
+    });
+  }
+
+  /* --------------------------------------------------------------------
+     MOBILE MENU
+     -------------------------------------------------------------------- */
+  var menuBtn = document.getElementById('menu-btn');
+  var navLinks = document.getElementById('nav-links');
+
+  if (menuBtn && navLinks){
+    menuBtn.addEventListener('click', function(){
+      var isOpen = navLinks.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinks.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        navLinks.classList.remove('is-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------
+     STICKY HEADER SHADOW ON SCROLL
+     -------------------------------------------------------------------- */
+  var header = document.getElementById('site-header');
+  function onScroll(){
+    if (!header) return;
+    header.classList.toggle('is-scrolled', window.scrollY > 8);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* --------------------------------------------------------------------
+     ACTIVE NAV LINK ON SCROLL
+     -------------------------------------------------------------------- */
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  var navAnchors = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+
+  function setActiveLink(){
+    var scrollPos = window.scrollY + 120;
+    var current = null;
+    sections.forEach(function(sec){
+      if (sec.hasAttribute('hidden')) return;
+      if (sec.offsetTop <= scrollPos) current = sec.id;
+    });
+    navAnchors.forEach(function(a){
+      var match = a.getAttribute('href') === ('#' + current);
+      a.classList.toggle('is-active', !!match);
+    });
+  }
+  window.addEventListener('scroll', setActiveLink, { passive: true });
+  setActiveLink();
+
+  /* --------------------------------------------------------------------
+     AUTO-HIDE NAV LINKS FOR HIDDEN / OPTIONAL SECTIONS
+     If a <section> has the "hidden" attribute, remove its matching
+     nav link automatically so students don't have to edit the menu.
+     -------------------------------------------------------------------- */
+  navAnchors.forEach(function(a){
+    var id = a.getAttribute('href');
+    if (!id || id.charAt(0) !== '#') return;
+    var target = document.querySelector(id);
+    if (target && target.hasAttribute('hidden')){
+      var li = a.closest('li');
+      if (li) li.remove();
+    }
+  });
+
+  /* --------------------------------------------------------------------
+     SCROLL REVEAL — a single, subtle entrance per section
+     -------------------------------------------------------------------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+  if ('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  /* --------------------------------------------------------------------
+     ICONS (Lucide) — safe no-op if the CDN script hasn't loaded
+     -------------------------------------------------------------------- */
+  if (window.lucide && typeof window.lucide.createIcons === 'function'){
+    window.lucide.createIcons();
+  }
+
+  /* --------------------------------------------------------------------
+     FOOTER YEAR
+     -------------------------------------------------------------------- */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
